@@ -1,6 +1,6 @@
 # Death Stranding Website
 
-This is my 20th project which is a landing page for the game 'Death Stranding'.
+This is my 20th project which is a landing page for the game 'Death Stranding'. (responsive)
 
 (The design is by Eduard Ch)
 
