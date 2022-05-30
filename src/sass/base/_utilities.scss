@@ -1,0 +1,87 @@
+@use '../abstracts/' as *;
+
+.flipped {
+  transform: rotateX(180deg);
+
+  & > * {
+    transform: rotateX(180deg);
+  }
+}
+
+// scroll snap -x
+.scroll-inline {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-snap-type: inline mandatory;
+  overscroll-behavior-inline: contain;
+
+  & > * {
+    scroll-snap-align: start;
+  }
+}
+
+// customized scrollbar -x
+.scrollbar--v {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @include breakpoint-up(large) {
+    &::-webkit-scrollbar {
+      display: block;
+      height: 0.2rem;
+    }
+
+    &::-webkit-scrollbar-track {
+      margin-right: 13rem;
+      margin-left: 82rem;
+      background-color: rgba($color-primary, 0.3);
+      border-radius: 100px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $color-gold2;
+      border-radius: 100px;
+    }
+  }
+}
+
+// Flex
+.flex {
+  display: flex;
+
+  &--c {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &-ac-jc {
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-ac {
+    align-items: center;
+  }
+
+  &-jc {
+    justify-content: center;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.hide-mobile {
+  @include breakpoint-down(medium) {
+    display: none !important;
+  }
+}
+.hide-desktop {
+  @include breakpoint-up(large) {
+    display: none !important;
+  }
+}

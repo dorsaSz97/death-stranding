@@ -1,0 +1,27 @@
+@keyframes makeVisible {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+@keyframes showInk {
+  0% {
+    transform: translateY(-50%) translateX(-2%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-98%);
+  }
+}
+@keyframes hideInk {
+  0% {
+    transform: translateY(-50%) translateX(-98%);
+  }
+  100% {
+    transform: translateY(-50%) translateX(-2%);
+  }
+}

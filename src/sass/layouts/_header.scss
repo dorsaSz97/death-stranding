@@ -1,0 +1,219 @@
+@use '../abstracts/' as *;
+
+.header {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+
+  &__logo {
+    position: absolute;
+    top: 4.5%;
+    left: 5%;
+    color: rgba($color-white, 0.8);
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba($color-white, 0.7);
+    transition: all 0.6s;
+
+    @include breakpoint-up(large) {
+      padding-inline: 0rem;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    transition: all 0.4s;
+    z-index: -1;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 2rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 90%;
+    transition: all 0.8s;
+
+    @include breakpoint-up(large) {
+      flex-direction: row;
+      padding-inline: 5rem;
+      background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+      background-position: 0 0, 0 0, 100% 0, 0 100%;
+      background-repeat: no-repeat;
+      background-image: linear-gradient(
+          0deg,
+          transparent 5%,
+          rgba($color-primary, 0.5) 5%,
+          rgba($color-primary, 0.5) 95%,
+          transparent 95%
+        ),
+        // left
+        linear-gradient(
+            90deg,
+            transparent 15ch,
+            rgba($color-primary, 0.5) 15ch,
+            rgba($color-primary, 0.5) 98%,
+            transparent 98%
+          ),
+        // top
+        linear-gradient(
+            180deg,
+            transparent 5%,
+            rgba($color-primary, 0.5) 5%,
+            rgba($color-primary, 0.5) 95%,
+            transparent 95%
+          ),
+        // right
+        linear-gradient(
+            90deg,
+            transparent 40ch,
+            rgba($color-primary, 0.5) 40ch,
+            rgba($color-primary, 0.5) 98%,
+            transparent 98%
+          )
+          // bottom
+;
+      & > * {
+        flex: 1;
+      }
+    }
+
+    .btn--primary {
+      align-self: center;
+    }
+  }
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: min(90%, 68rem);
+    transition: all 0.6s;
+
+    .paragraph {
+      font-size: 1.8rem;
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
+
+  .trailer {
+    display: flex;
+    align-items: center;
+
+    @include breakpoint-up(large) {
+      justify-content: center;
+    }
+
+    .btn--play {
+      background: transparent;
+      transition: all 0.5s;
+
+      @include breakpoint-up(large) {
+        padding: 5rem;
+        background-color: transparent;
+        border: 1px solid $color-gold3;
+        border-radius: 100px;
+      }
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  #trailer-video {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: $color-blue-dark;
+    opacity: 0;
+    z-index: -1;
+
+    @include breakpoint-up(large) {
+      object-fit: cover;
+    }
+  }
+
+  &__socials {
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    padding-inline: 4rem;
+    transition: all 0.6s;
+
+    @include breakpoint-up(large) {
+      display: flex;
+      gap: 2rem;
+      position: absolute;
+      bottom: 5%;
+      left: 5%;
+      padding-inline: 0em;
+      font-size: 0.9rem;
+      color: rgba($color-white, 0.9);
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: flex;
+      gap: 2rem;
+      @include breakpoint-up(large) {
+        gap: 4rem;
+      }
+      a:link,
+      a:visited {
+        color: rgba($color-white, 0.8);
+      }
+      img {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+  }
+
+  &.is-playing {
+    .wrapper {
+      background-image: none;
+    }
+    .header__text,
+    .header__logo,
+    .header__socials {
+      transform: translateX(-200rem);
+    }
+    .header__bg {
+      opacity: 0;
+      transition: all 0.2s;
+    }
+
+    .trailer.hide-mobile {
+      .btn--play {
+        background-color: $color-gold3;
+        width: 2rem;
+        height: 2rem;
+        padding: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.4;
+        &:hover {
+          opacity: 1 !important;
+        }
+      }
+    }
+  }
+}

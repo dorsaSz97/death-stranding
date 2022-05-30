@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+
+.section-intro {
+  &::before {
+    background-image: url('../assets/img/bg-intro.webp');
+    background-position: center center;
+    filter: brightness(0.6) opacity(0.5);
+
+    @include breakpoint-up(large) {
+      background-position-x: 0%;
+    }
+  }
+  .section__header {
+    width: min(95%, 50rem);
+    .heading-secondary {
+      color: $color-primary;
+    }
+  }
+
+  .section__content {
+    width: min(95%, 50rem);
+    & > * {
+      color: $color-primary;
+      text-align: center;
+      line-height: 1.2;
+    }
+    .paragraph:not(:last-child) {
+      margin-bottom: 5rem;
+    }
+  }
+}

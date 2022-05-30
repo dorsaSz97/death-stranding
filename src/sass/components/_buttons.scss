@@ -1,0 +1,29 @@
+@use '../abstracts/' as *;
+
+.btn {
+  display: inline-block;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  color: $color-white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.btn--primary {
+  padding-inline: 6rem;
+  padding-block: 2rem;
+  font-size: 1.5rem;
+  background-color: rgba($color-primary, 0.2);
+  transition: all 0.5s ease-in-out;
+
+  @include breakpoint-up(large) {
+    padding-inline: 8rem;
+    font-size: 1.8rem;
+  }
+
+  &:hover {
+    background-color: rgba($color-primary, 0.5);
+    box-shadow: 0 0 20px rgba($color-primary, 0.4);
+  }
+}

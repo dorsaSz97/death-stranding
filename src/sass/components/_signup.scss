@@ -1,0 +1,154 @@
+@use '../abstracts/' as *;
+@use '../base/animations';
+
+.section-signup {
+  &::before {
+    background-image: url('../assets/img/bg-signup.webp');
+  }
+
+  .form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding-top: 6rem;
+
+    .field {
+      position: relative;
+      width: 30rem;
+      @include breakpoint-up(large) {
+        width: 50rem;
+      }
+
+      input {
+        width: 100%;
+        padding: 2rem;
+        outline: none;
+        border: none;
+        background-color: transparent;
+        background-size: 1px 100%, 100% 1px, 1px 100%, 100% 1px;
+        background-repeat: no-repeat;
+        background-position: 0 0, 0 0, 100% 0, 0 100%;
+        color: $color-white;
+        text-align: center;
+
+        @include breakpoint-up(large) {
+          background-image: linear-gradient(
+              0deg,
+              rgba($color-primary, 0.5) 80%,
+              transparent 80%
+            ),
+            // left
+            linear-gradient(
+                90deg,
+                transparent 30%,
+                rgba($color-primary, 0.5) 30%
+              ),
+            // top
+            linear-gradient(
+                180deg,
+                rgba($color-primary, 0.5),
+                rgba($color-primary, 0.5)
+              ),
+            // right
+            linear-gradient(
+                270deg,
+                rgba($color-primary, 0.5),
+                rgba($color-primary, 0.5)
+              )
+              // bottom
+;
+        }
+      }
+      &:nth-of-type(1) input,
+      &:nth-of-type(2) input {
+        background-image: linear-gradient(
+            0deg,
+            rgba($color-primary, 0.5) 80%,
+            transparent 80%
+          ),
+          // left
+          linear-gradient(
+              90deg,
+              transparent 10ch,
+              rgba($color-primary, 0.5) 10ch
+            ),
+          // top
+          linear-gradient(
+              180deg,
+              rgba($color-primary, 0.5),
+              rgba($color-primary, 0.5)
+            ),
+          // right
+          linear-gradient(
+              270deg,
+              rgba($color-primary, 0.5),
+              rgba($color-primary, 0.5)
+            )
+            // bottom
+;
+      }
+      &:nth-of-type(3) input {
+        background-image: linear-gradient(
+            0deg,
+            rgba($color-primary, 0.5) 80%,
+            transparent 80%
+          ),
+          // left
+          linear-gradient(
+              90deg,
+              transparent 13ch,
+              rgba($color-primary, 0.5) 13ch
+            ),
+          // top
+          linear-gradient(
+              180deg,
+              rgba($color-primary, 0.5),
+              rgba($color-primary, 0.5)
+            ),
+          // right
+          linear-gradient(
+              270deg,
+              rgba($color-primary, 0.5),
+              rgba($color-primary, 0.5)
+            )
+            // bottom
+;
+      }
+      &:nth-of-type(4) input {
+        background-image: linear-gradient(
+            0deg,
+            rgba($color-primary, 0.5) 80%,
+            transparent 80%
+          ),
+          // left
+          linear-gradient(
+              90deg,
+              transparent 18ch,
+              rgba($color-primary, 0.5) 18ch
+            ),
+          // top
+          linear-gradient(
+              180deg,
+              rgba($color-primary, 0.5),
+              rgba($color-primary, 0.5)
+            ),
+          // right
+          linear-gradient(
+              270deg,
+              rgba($color-primary, 0.5),
+              rgba($color-primary, 0.5)
+            )
+            // bottom
+;
+      }
+
+      label {
+        position: absolute;
+        top: -20%;
+        left: 1%;
+      }
+    }
+  }
+}

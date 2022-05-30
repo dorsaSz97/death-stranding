@@ -1,0 +1,93 @@
+@use '../abstracts/' as *;
+@use '../base/animations';
+
+.character-details {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3;
+  transition: all 0.6s;
+
+  .modal-close {
+    position: absolute;
+    top: 20px;
+    right: 5%;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.3)
+      url('../assets/img/Characters/icon-close.svg') center center no-repeat;
+    z-index: 1;
+  }
+
+  .details {
+    img {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 90%;
+      height: 80%;
+      filter: brightness(0.7);
+      object-fit: contain;
+
+      @include breakpoint-up(large) {
+        object-fit: cover;
+      }
+    }
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.ink-transition-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  z-index: 2;
+
+  .ink-bg {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    // centering the first image out of 25 (each image is 4% of the whole -> half of each image would be 2%
+    transform: translateY(-50%) translateX(-2%);
+    height: 100%;
+    // 25 frame image
+    width: 2500%;
+    background: url('../assets/img/ink.png') 0 0 no-repeat;
+    background-size: 100% 100%;
+  }
+
+  &.visible {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &.showing {
+    .ink-bg {
+      // translating through fixed steps (the first image doesnt count so -> imagecount - 1
+      animation: showInk 1s steps(24);
+      animation-fill-mode: forwards;
+    }
+  }
+
+  &.hiding {
+    .ink-bg {
+      animation: hideInk 1.5s steps(24);
+      animation-fill-mode: forwards;
+    }
+  }
+}
