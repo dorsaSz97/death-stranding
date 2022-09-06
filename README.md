@@ -1,6 +1,6 @@
-# Death Stranding Website
+# Death Stranding
 
-This is my 20th project which is a landing page for the game 'Death Stranding'. (responsive)
+This is a landing page for the game 'Death Stranding' coded with JavaScript.
 
 (The design is by Eduard Ch)
 
